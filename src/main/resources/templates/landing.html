@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CyberSec Shop</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<header>
+    <h1>CyberSec Shop</h1>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/dashboard">Личный кабинет</a>
+        <a href="/admin">Админка</a>
+    </nav>
+</header>
+<main>
+    <section class="hero">
+        <h2>Надежный сервис с защитой Keycloak</h2>
+        <p>Регистрируйтесь, чтобы получить доступ к личному кабинету и администраторам.</p>
+        <div class="cta">
+            <a class="button" href="/oauth2/authorization/keycloak">Войти через Keycloak</a>
+        </div>
+    </section>
+    <section class="features">
+        <div>
+            <h3>Защита</h3>
+            <p>CSRF и CORS по умолчанию, безопасные роли.</p>
+        </div>
+        <div>
+            <h3>Роли</h3>
+            <p>USER для клиентов, ADMIN для управляющих.</p>
+        </div>
+        <div>
+            <h3>Интеграция</h3>
+            <p>Keycloak + NGINX + mTLS.</p>
+        </div>
+    </section>
+</main>
+<footer>
+    <p th:if="${user != null}">Вы вошли как <span th:text="${user.name}"></span></p>
+    <p th:if="${user == null}">Гость</p>
+</footer>
+</body>
+</html>
