@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: cybersec-shop
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: cybersec-shop-client
+            client-secret: ${KEYCLOAK_CLIENT_SECRET:change-me}
+            scope: openid,profile,email,roles
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          keycloak:
+            issuer-uri: ${KEYCLOAK_ISSUER_URI:http://api.example.com/realms/cybersec-shop}
+            user-name-attribute: preferred_username
+  thymeleaf:
+    cache: false
+
+server:
+  port: 8080
+  forward-headers-strategy: framework
+
+app:
+  frontend:
+    origin: ${FRONTEND_ORIGIN:https://example.com}

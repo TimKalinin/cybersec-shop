@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<header>
+    <h1>Личный кабинет</h1>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/dashboard">Личный кабинет</a>
+        <a href="/admin">Админка</a>
+        <a href="/logout">Выход</a>
+    </nav>
+</header>
+<main>
+    <section>
+        <h2>Здравствуйте, <span th:text="${user.fullName}">user</span>!</h2>
+        <p>Ваш email: <span th:text="${email}">email</span></p>
+        <p>Эта страница доступна только аутентифицированным пользователям с ролью USER.</p>
+    </section>
+</main>
+</body>
+</html>

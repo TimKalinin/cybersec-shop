@@ -1,0 +1,66 @@
+{
+  "id": "cybersec-shop",
+  "realm": "cybersec-shop",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "cybersec-shop-client",
+      "name": "CyberSec Shop UI",
+      "publicClient": false,
+      "secret": "${env.KEYCLOAK_CLIENT_SECRET}",
+      "redirectUris": [
+        "https://example.com/*",
+        "https://api.example.com/*"
+      ],
+      "webOrigins": [
+        "*"
+      ],
+      "protocol": "openid-connect",
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "attributes": {
+        "post.logout.redirect.uris": "https://example.com/*"
+      }
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "USER"
+      },
+      {
+        "name": "ADMIN"
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "demo-user",
+      "enabled": true,
+      "emailVerified": true,
+      "email": "demo-user@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["USER"]
+    },
+    {
+      "username": "demo-admin",
+      "enabled": true,
+      "emailVerified": true,
+      "email": "demo-admin@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["USER", "ADMIN"]
+    }
+  ]
+}

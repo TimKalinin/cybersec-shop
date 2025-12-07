@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Админка</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<header>
+    <h1>Администрирование</h1>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/dashboard">Личный кабинет</a>
+        <a href="/admin">Админка</a>
+        <a href="/logout">Выход</a>
+    </nav>
+</header>
+<main>
+    <section>
+        <h2>Доступ только для роли ADMIN</h2>
+        <p>Секретные метрики и управление пользователями.</p>
+        <ul>
+            <li>Количество активных пользователей</li>
+            <li>Текущие входы: <span th:text="${user.preferredUsername}">admin</span></li>
+            <li>Информация о клиентах защищена.</li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>
